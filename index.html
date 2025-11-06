@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кровля Профі Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="brand">
+          <h1>Кровля Профі Planner</h1>
+          <p>Створюйте плани дахів та експортуйте PDF/Excel без встановлення</p>
+        </div>
+        <div class="stepper" id="stepper">
+          <div class="step active" data-step="1">
+            <span>1</span>
+            <label>Тип даху</label>
+          </div>
+          <div class="step" data-step="2">
+            <span>2</span>
+            <label>Геометрія</label>
+          </div>
+          <div class="step" data-step="3">
+            <span>3</span>
+            <label>Редактор</label>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="step-content" id="step-1"></section>
+        <section class="step-content hidden" id="step-2"></section>
+        <section class="workspace hidden" id="step-3">
+          <aside class="toolbar" id="toolbar"></aside>
+          <section class="canvas-container">
+            <div class="canvas-header">
+              <div class="canvas-controls">
+                <button class="btn" id="zoom-in">+</button>
+                <button class="btn" id="zoom-out">−</button>
+                <button class="btn" id="reset-view">100%</button>
+              </div>
+              <div class="canvas-status" id="canvas-status"></div>
+            </div>
+            <div class="canvas-wrapper">
+              <svg id="editor-canvas" viewBox="0 0 2000 2000"></svg>
+              <div class="cursor-info" id="cursor-info">X: 0 мм, Y: 0 мм</div>
+            </div>
+            <div class="canvas-footer">
+              <div class="hint" id="action-hint">Виберіть інструмент, щоб почати редагування</div>
+              <div class="undo-redo">
+                <button class="btn" id="undo-btn" disabled>Undo</button>
+                <button class="btn" id="redo-btn" disabled>Redo</button>
+              </div>
+            </div>
+          </section>
+          <aside class="side-panel" id="side-panel"></aside>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <div class="status" id="validation-status"></div>
+        <div class="actions">
+          <button class="btn secondary" id="back-button">Назад</button>
+          <button class="btn primary" id="next-button">Далі</button>
+          <button class="btn success hidden" id="export-button" disabled>Експорт</button>
+        </div>
+      </footer>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
